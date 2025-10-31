@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="fa">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>نام شما — صفحهٔ شخصی</title>
+  <meta name="description" content="صفحهٔ شخصی نام شما — طراح، توسعه‌دهنده، و...">
+  <style>
+    /* ---------- Reset & base ---------- */
+    :root{
+      --bg: #0f1724;
+      --card: #0b1320;
+      --accent: #06b6d4;
+      --muted: #9aa6b2;
+      --glass: rgba(255,255,255,0.04);
+      --glass-2: rgba(255,255,255,0.02);
+      --radius: 14px;
+      color-scheme: dark;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    body{
+      font-family: "Vazirmatn", "Segoe UI", Roboto, system-ui, -apple-system, "Helvetica Neue", Arial;
+      background: radial-gradient(1200px 600px at 10% 10%, rgba(6,182,212,0.07), transparent),
+                  radial-gradient(800px 400px at 90% 90%, rgba(99,102,241,0.06), transparent),
+                  var(--bg);
+      color: #e6eef6;
+      -webkit-font-smoothing:antialiased;
+      padding: 32px;
+    }
+    .wrap{
+      max-width:1000px;margin:0 auto;display:grid;grid-template-columns:320px 1fr;gap:24px;
+    }
+
+    /* ---------- Sidebar ---------- */
+    .card{
+      background: linear-gradient(180deg,var(--glass),var(--glass-2));
+      border-radius:var(--radius);
+      padding:20px;
+      box-shadow: 0 6px 30px rgba(2,6,23,0.6);
+      border: 1px solid rgba(255,255,255,0.03);
+    }
+    .avatar{
+      width:120px;height:120px;border-radius:18px;overflow:hidden;margin:0 auto 14px;
+      border: 2px solid rgba(255,255,255,0.06);
+    }
+    .avatar img{width:100%;height:100%;object-fit:cover;display:block}
+    h1{font-size:20px;text-align:center;margin-bottom:6px}
+    .title{font-size:13px;color:var(--muted);text-align:center;margin-bottom:12px}
+    .about{font-size:14px;line-height:1.5;color:#cfeaf4;padding:8px 4px;text-align:center}
+    .contacts{margin-top:14px;display:flex;flex-direction:column;gap:8px}
+    .contact-item{display:flex;align-items:center;gap:10px;padding:8px;border-radius:10px;background:transparent;border:1px solid rgba(255,255,255,0.02)}
+    .contact-item b{width:84px;color:var(--muted);font-weight:600}
+    .socials{display:flex;gap:8px;justify-content:center;margin-top:12px}
+    .socials a{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:10px;background:rgba(255,255,255,0.02);text-decoration:none;color:inherit}
+
+    /* ---------- Main ---------- */
+    .main{
+      display:flex;flex-direction:column;gap:18px;
+    }
+    .hero{
+      display:flex;gap:18px;align-items:center;
+      padding:18px;border-radius:14px;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+      border:1px solid rgba(255,255,255,0.02);
+    }
+    .hero-left{flex:1}
+    .hello{color:var(--accent);font-weight:700;margin-bottom:6px}
+    .headline{font-size:22px;font-weight:700;margin-bottom:6px}
+    .sub{color:var(--muted);font-size:14px}
+    .cta{margin-top:12px;display:flex;gap:10px}
+    .btn{padding:10px 14px;border-radius:10px;border:0;cursor:pointer;font-weight:600}
+    .btn-primary{background:linear-gradient(90deg,var(--accent), #60a5fa);color:#051023}
+    .btn-outline{background:transparent;border:1px solid rgba(255,255,255,0.04);color:inherit}
+
+    /* ---------- Sections ---------- */
+    .section{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+    .project{padding:12px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);border:1px solid rgba(255,255,255,0.02)}
+    .project h3{font-size:16px;margin-bottom:6px}
+    .project p{color:var(--muted);font-size:13px;line-height:1.4}
+
+    /* ---------- Footer / contact form ---------- */
+    .contact-form{display:flex;flex-direction:column;gap:8px;padding:14px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);border:1px solid rgba(255,255,255,0.02)}
+    .input{background:transparent;border:1px solid rgba(255,255,255,0.03);padding:10px;border-radius:8px;color:inherit}
+    .input::placeholder{color:rgba(255,255,255,0.35)}
+    .note{font-size:13px;color:var(--muted);margin-top:6px}
+
+    /* ---------- Responsive ---------- */
+    @media (max-width:900px){
+      .wrap{grid-template-columns:1fr; padding: 12px}
+      .avatar{margin-bottom:12px}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <!-- SIDEBAR -->
+    <aside class="card">
+      <div class="avatar">
+        <!-- جای عکس خودت اینجا لینک بذار یا فایل محلی -->
+        <img id="avatarImg" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Avatar">
+      </div>
+
+      <h1 id="fullName">نام شما</h1>
+      <div class="title" id="role">توسعه‌دهنده وب — طراح</div>
+      <div class="about" id="bio">اینجا یک معرفی کوتاه دربارهٔ خودت بنویس؛ تخصص‌ها، علاقه‌مندی‌ها یا جمله‌ای که دوست داری بازدیدکننده‌ها ببینند.</div>
+
+      <div class="contacts">
+        <div class="contact-item"><b>ایمیل</b><span id="email">you@example.com</span></div>
+        <div class="contact-item"><b>مکان</b><span id="location">شهر، کشور</span></div>
+        <div class="contact-item"><b>تلفن</b><span id="phone">+98 9xx xxx xxxx</span></div>
+      </div>
+
+      <div class="socials" style="margin-top:14px">
+        <a id="link-github" href="#" title="GitHub" target="_blank">GH</a>
+        <a id="link-linkedin" href="#" title="LinkedIn" target="_blank">in</a>
+        <a id="link-twitter" href="#" title="Twitter" target="_blank">tw</a>
+      </div>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="main">
+      <section class="hero card">
+        <div class="hero-left">
+          <div class="hello">سلام، من</div>
+          <div class="headline" id="heroName">نام شما</div>
+          <div class="sub" id="heroSub">من توسعه‌دهندهٔ وب هستم؛ ساخت محصولات قابل استفاده و تجربهٔ کاربری خوب هدف منه.</div>
+
+          <div class="cta">
+            <a class="btn btn-primary" id="downloadCV" href="#" download>دانلود رزومه</a>
+            <button class="btn btn-outline" onclick="scrollToSection('projects')">نمونه‌کارها</button>
+          </div>
+        </div>
+        <div style="width:160px;text-align:center">
+          <!-- می‌تونی یه تصویر کوچک یا آیکون اینجا بذاری -->
+          <div style="width:120px;height:120px;border-radius:16px;background:linear-gradient(45deg,#0ea5a4,#6366f1);display:inline-flex;align-items:center;justify-content:center;font-weight:700;color:#041022">Logo</div>
+        </div>
+      </section>
+
+      <section id="projects" class="card">
+        <h2 style="margin-bottom:10px">نمونه‌کارها</h2>
+        <div class="section">
+          <article class="project">
+            <h3>پروژهٔ اول</h3>
+            <p>توضیح کوتاه دربارهٔ پروژه؛ تکنولوژی‌ها: HTML, CSS, JS</p>
+            <a href="#" target="_blank" style="color:var(--accent);font-weight:700;text-decoration:none">مشاهده</a>
+          </article>
+
+          <article class="project">
+            <h3>پروژهٔ دوم</h3>
+            <p>توضیح کوتاه دربارهٔ پروژه؛ لینک به گیت‌هاب یا دمو</p>
+            <a href="#" target="_blank" style="color:var(--accent);font-weight:700;text-decoration:none">مشاهده</a>
+          </article>
+
+          <article class="project">
+            <h3>پروژهٔ سوم</h3>
+            <p>توضیح کوتاه دربارهٔ پروژه؛ می‌توانی تصویر بندانگشتی هم اضافه کنی.</p>
+            <a href="#" target="_blank" style="color:var(--accent);font-weight:700;text-decoration:none">مشاهده</a>
+          </article>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2 style="margin-bottom:10px">تماس</h2>
+        <form id="contactForm" class="contact-form" onsubmit="handleContact(event)">
+          <input id="cf-name" class="input" placeholder="نام شما" required>
+          <input id="cf-email" class="input" placeholder="ایمیل شما" type="email" required>
+          <textarea id="cf-msg" class="input" placeholder="پیام..." rows="5" required></textarea>
+          <div style="display:flex;gap:8px">
+            <button type="submit" class="btn btn-primary">ارسال پیام</button>
+            <button type="button" class="btn btn-outline" onclick="resetForm()">پاک کن</button>
+          </div>
+          <div class="note">این فرم به‌صورت محلی کار می‌کند و با JS پیام را در صفحه نشان می‌دهد. برای ارسال واقعی باید backend اضافه کنی یا از فرم action استفاده کنی.</div>
+        </form>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    /* ------------------- سفارشی‌سازی سریع -------------------
+       برای تغییر اطلاعات، می‌تونی مستقیم داخل HTML مقدارها را عوض کنی
+       یا از اینجا تغییر بدی. مثال زیر را با اطلاعات خودت جایگزین کن.
+    -------------------------------------------------------- */
+    const profile = {
+      fullName: "ایلیا اسدی",
+      role: "توسعه‌دهندهٔ وب",
+      bio: "من روی فرانت‌اند و تجربهٔ کاربری کار می‌کنم. عاشق رابط‌های ساده و سریع هستم.",
+      email: "ali@example.com",
+      location: "تربت، ایران",
+      phone: "+98 912 000 0000",
+      avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=800&auto=format&fit=crop",
+      github: "https://github.com/yourusername",
+      linkedin: "https://www.linkedin.com/in/yourprofile",
+      twitter: "https://twitter.com/yourhandle",
+      resume: "#" // اگر فایل رزومه داری لینک فایل را اینجا بذار
+    };
+
+    // apply profile to page
+    document.getElementById('fullName').textContent = profile.fullName;
+    document.getElementById('role').textContent = profile.role;
+    document.getElementById('bio').textContent = profile.bio;
+    document.getElementById('email').textContent = profile.email;
+    document.getElementById('location').textContent = profile.location;
+    document.getElementById('phone').textContent = profile.phone;
+    document.getElementById('avatarImg').src = profile.avatar;
+    document.getElementById('heroName').textContent = profile.fullName;
+    document.getElementById('heroSub').textContent = profile.bio;
+    document.getElementById('link-github').href = profile.github;
+    document.getElementById('link-linkedin').href = profile.linkedin;
+    document.getElementById('link-twitter').href = profile.twitter;
+    document.getElementById('downloadCV').href = profile.resume;
+    document.title = profile.fullName + " — صفحهٔ شخصی";
+
+    // contact form (محلی)
+    function handleContact(e){
+      e.preventDefault();
+      const name = document.getElementById('cf-name').value;
+      const email = document.getElementById('cf-email').value;
+      const msg = document.getElementById('cf-msg').value;
+      alert(`پیام ارسال شد!\n\nنام: ${name}\nایمیل: ${email}\n\nمتن:\n${msg}`);
+      resetForm();
+    }
+    function resetForm(){
+      document.getElementById('contactForm').reset();
+    }
+
+    // helper
+    function scrollToSection(id){
+      const el = document.getElementById(id);
+      if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
+    }
+  </script>
+</body>
+</html>
